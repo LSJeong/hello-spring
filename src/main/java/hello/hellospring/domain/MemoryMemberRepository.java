@@ -1,9 +1,12 @@
 package hello.hellospring.domain;
 
 import hello.hellospring.repository.MemberRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
-
+//1. 컴포넌트스캔과 자동의존관계 설정
+//@Repository
+//2. 자바 코드로 직접 스프링빈 등록하기 -> SpringConfig 파일 생성
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
