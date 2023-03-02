@@ -18,7 +18,7 @@ public class SpringConfig {
 //    }
 
     //JPA로 쓸때 필요
-    private EntityManager em;
+   /* private EntityManager em;
 
     @Autowired
     public SpringConfig(EntityManager em){
@@ -36,5 +36,17 @@ public class SpringConfig {
         //return new JdbcMemberRepository(dataSource);
         //return new JdbcTemplateMemberRepository(dataSource);
         return new JpaMemberRepository(em);
+    }*/
+
+
+    //Spring data JPA 쓸때
+    private final MemberRepository memberRepository;
+
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+    @Bean
+    public MemberService memberService() {
+        return new MemberService(memberRepository);
     }
 }
