@@ -2,6 +2,7 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +10,7 @@ import java.util.Optional;
 //1. 컴포넌트스캔과 자동의존관계 설정
 //@Service
 //2. 자바 코드로 직접 스프링빈 등록하기 -> SpringConfig 파일 생성
+@Transactional  //jpa, 데이터를 저장하고 변경할때 필요
 public class MemberService {
     //ctl+shift+T : 테스트 코드 껍데기 자동 생성
     //ctl+alt+v : 리턴타입,변수 자동생성
